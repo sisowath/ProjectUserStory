@@ -10,6 +10,7 @@ public class UtilisateurDAO {
         for(int i=0; i < temp.getListeDesUtilisateurs().size(); i++)
             if( u.getUsername().equalsIgnoreCase( temp.getListeDesUtilisateurs().get(i).getUsername() ) &&
                 u.getPassword().equalsIgnoreCase( temp.getListeDesUtilisateurs().get(i).getPassword() ) ) {                
+                u.setStatut( temp.getListeDesUtilisateurs().get(i).getStatut() );
                 return true;
             }                
         return false;

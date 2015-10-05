@@ -16,11 +16,15 @@ public class ProjectUserStory {
         private static Scanner cin = new Scanner(System.in);
         
         public static void main(String[] args) {     
-            // initialiser un utilisateur
+            // initialiser un utilisateur pour TEST
             try {
                 File unFichier = new File("TableUtilisateurs.txt");            
                 PrintWriter pointeurVersFichier = new PrintWriter(unFichier);
-                pointeurVersFichier.println("1 samnang suon admin");
+                pointeurVersFichier.println("1 alex caumartin admin");
+                pointeurVersFichier.println("2 maxime morin admin");
+                pointeurVersFichier.println("3 nicolas blier admin");
+                pointeurVersFichier.println("4 samnang suon admin");
+                pointeurVersFichier.println("5 weird bizarre ban");
                 pointeurVersFichier.close();
                 System.out.println("Le fichier « TableUtilisateurs.txt » a été créé.");
             } catch (FileNotFoundException ex) {
@@ -67,18 +71,24 @@ public class ProjectUserStory {
         UtilisateurDAO temp = new UtilisateurDAO();
         boolean isFound = false;
         do {                        
-            System.out.println("Statut actuel : " + visiteur.getStatut() );
+            //System.out.println("Statut actuel : " + visiteur.getStatut() );
             System.out.print("Nom utilisateur : ");
-            nomUtilisateur = cin.nextLine();
+            nomUtilisateur = cin.next();
             System.out.print("Mot de passe : ");
-            motDePasse = cin.nextLine();      
+            motDePasse = cin.next();      
             clearConsole(5);
             visiteur.setUsername(nomUtilisateur);// visiteur doit être STATIC !
             visiteur.setPassword(motDePasse);
             if( temp.find( visiteur ) ) {
-                    System.out.println("BRAVO ! Vous êtes connecté !");
-                    isFound = true;
-                    System.out.println("Nouveau statut : " + visiteur.getStatut() );
+                    if( visiteur.getStatut().equalsIgnoreCase("ban") ) {
+                        System.out.println("*** Message des administrateurs ***");
+                        System.out.println("Attention ! Votre compte a été banni.");                        
+                        System.out.println("Vous devez attendre 24h avant de pouvoir vous connecter.");                        
+                    } else {
+                        System.out.println("BRAVO ! Vous êtes connecté !");
+                        isFound = true;
+                        System.out.println("Nouveau statut : " + visiteur.getStatut() );
+                    }
             } else {
                 System.out.println("Attention ! Il y a une erreur dans le username ou le password.");                            
             }
@@ -205,7 +215,7 @@ public class ProjectUserStory {
     public static void gererCompteJoueur() {
         System.out.println("[1] Bannir le compte d'un joueur");
         System.out.println("[2] Réactiver le compte d'un joueur");
-        System.out.println("Veuillez saisir votre choix : ");
+        System.out.print("Veuillez saisir votre choix : ");
         int choix = cin.nextInt();
         switch( choix ) {
             case 1 :
