@@ -9,23 +9,7 @@ public class UtilisateurDAO {
         TableUtilisateur temp = new TableUtilisateur();
         for(int i=0; i < temp.getListeDesUtilisateurs().size(); i++)
             if( u.getUsername().equalsIgnoreCase( temp.getListeDesUtilisateurs().get(i).getUsername() ) &&
-                u.getPassword().equalsIgnoreCase( temp.getListeDesUtilisateurs().get(i).getPassword() ) ) {
-                switch( temp.getListeDesUtilisateurs().get(i).getStatut() ) {
-                    case "player" :
-                        
-                        break;
-                    case "modo" :
-                        
-                        break;
-                    case "admin" :
-                        /*u = new Administrateur(
-                                    temp.getListeDesUtilisateurs().get(i).getId(),
-                                    temp.getListeDesUtilisateurs().get(i).getUsername(),
-                                    temp.getListeDesUtilisateurs().get(i).getPassword(),
-                                    temp.getListeDesUtilisateurs().get(i)
-                                );*/
-                        break;
-                }
+                u.getPassword().equalsIgnoreCase( temp.getListeDesUtilisateurs().get(i).getPassword() ) ) {                
                 return true;
             }                
         return false;
