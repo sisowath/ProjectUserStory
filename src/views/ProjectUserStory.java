@@ -177,6 +177,7 @@ public class ProjectUserStory {
     
         return true;
     }
+// DÉBUT DE MAGASIN
     public static boolean magasinAction() {
         System.out.println("*** B I E N V E N U E    A U    M A G A S I N ***");
         System.out.println("[1] Acheter un casque");
@@ -187,7 +188,7 @@ public class ProjectUserStory {
         int choix = cin.nextInt();
         switch( choix ) {
             case 1 :
-                
+                requestHelmetAction();
                 break;
             case 2 :
                 
@@ -199,8 +200,13 @@ public class ProjectUserStory {
                 
                 break;
         }
-        return true;
+        return true;        
     }
+    public static boolean requestHelmetAction() {
+            //HelmetDAO temp = new HelmetDAO();
+            return true;
+        }
+// FIN DE MAGASIN    
     public static boolean inventoryAction() {
         return true;
     }
