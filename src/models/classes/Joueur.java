@@ -1,11 +1,11 @@
 package models.classes;
 
-public class Joueur {
+public class Joueur extends Utilisateur {
             // attribut(s)
-    private int id;
+    /*private int id;
     private String username;
     private String password;
-    private String email;
+    private String email;*/
     private boolean isActive;
     private String image;
     private String description;
@@ -15,10 +15,11 @@ public class Joueur {
     // constructeur(s)
     public Joueur(  int id, String username, String password, String email, boolean isActive, 
                     String image, String description, int ferraille, int prestige) {
-        this.id = id;
+       /* this.id = id;
         this.username = username;
         this.password = password;
-        this.email = email;
+        this.email = email;*/
+        super(id, username, password, email);
         this.isActive = isActive;
         this.image = image;
         this.description = description;
@@ -26,6 +27,7 @@ public class Joueur {
         this.prestige = prestige;
     }
     // accesseur(s)
+    /*
        public int getId() {
         return id;
     }
@@ -37,7 +39,7 @@ public class Joueur {
     }
     public String getEmail() {
         return email;
-    }
+    }*/
     public boolean isIsActive() {
         return isActive;
     }
@@ -54,7 +56,7 @@ public class Joueur {
         return prestige;
     }
     // mutateur(s)
-    public void setId(int id) {
+    /*public void setId(int id) {
         this.id = id;
     }
     public void setUsername(String username) {
@@ -65,7 +67,7 @@ public class Joueur {
     }
     public void setEmail(String email) {
         this.email = email;
-    }
+    }*/
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
