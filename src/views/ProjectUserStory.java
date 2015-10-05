@@ -159,7 +159,7 @@ public class ProjectUserStory {
                 searchPlayerAction();
                 break;
             case 6 :
-
+                showLeaderBoardAction();
                 break;
             case 7 :
 
@@ -209,6 +209,9 @@ public class ProjectUserStory {
         String nomJoueur = cin.next();
         return true;
     }
+    public static boolean showLeaderBoardAction() {
+        return true;
+    }
 // Section pour les modérateurs
     public static void redirectPageModerateur() {
         System.out.println("[1] Appliquer une sourdine");
@@ -223,7 +226,7 @@ public class ProjectUserStory {
                 
                 break;
         }
-    }
+    }    
 // Section pour les administrateurs
     public static void redirectPageAdministrateur() {
         System.out.println("[1] Gérer le compte d'un joueur");
