@@ -150,14 +150,13 @@ public class ProjectUserStory {
                 pvpAction();
                 break;
             case 3 :
-
+                magasinAction();
                 break;
-
             case 4 :
-
+                inventoryAction();
                 break;
             case 5 :
-
+                searchPlayerAction();
                 break;
             case 6 :
 
@@ -176,6 +175,38 @@ public class ProjectUserStory {
     }
     public static boolean pvpAction() {
     
+        return true;
+    }
+    public static boolean magasinAction() {
+        System.out.println("*** B I E N V E N U E    A U    M A G A S I N ***");
+        System.out.println("[1] Acheter un casque");
+        System.out.println("[2] Acheter un bras droit");
+        System.out.println("[3] Acheter un bras gauche");
+        System.out.println("[4] Acheter une chenille");
+        System.out.println("Veuillez saisir votre choix : ");
+        int choix = cin.nextInt();
+        switch( choix ) {
+            case 1 :
+                
+                break;
+            case 2 :
+                
+                break;
+            case 3 :
+                
+                break;
+            case 4 :
+                
+                break;
+        }
+        return true;
+    }
+    public static boolean inventoryAction() {
+        return true;
+    }
+    public static boolean searchPlayerAction() {
+        System.out.println("Veuillez saisir le nom du joueur à trouver: ");
+        String nomJoueur = cin.next();
         return true;
     }
 // Section pour les modérateurs
