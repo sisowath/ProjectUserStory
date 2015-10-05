@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.DAOs.MySQL;
 import models.DAOs.UtilisateurDAO;
 import models.classes.Utilisateur;
 
@@ -16,8 +17,12 @@ public class ProjectUserStory {
         private static Scanner cin = new Scanner(System.in);
         
         public static void main(String[] args) {     
-            // initialiser un utilisateur pour TEST
-            try {
+            // test de l'utilisation d'une BD MySQL        
+            System.out.println("Je suis en train de tester la BD « Projet » de PhpMyAdmin...");
+            MySQL test = new MySQL();
+            clearConsole(5);
+            // initialiser un utilisateur pour TEST                       
+            /*try {
                 File unFichier = new File("TableUtilisateurs.txt");            
                 PrintWriter pointeurVersFichier = new PrintWriter(unFichier);
                 pointeurVersFichier.println("1 alex caumartin admin");
@@ -29,8 +34,9 @@ public class ProjectUserStory {
                 System.out.println("Le fichier « TableUtilisateurs.txt » a été créé.");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ProjectUserStory.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                                
+            }*/
+            // Nous n'avons plus besoin du code ci-haut, car la connexion à la BD fonctionne ! (Samnang)   
+            
             boolean isConnected = false;
             int choixMenu;
             System.out.println("*** B I E N V E N U E   A U   S I T E - THE GAME ***");
