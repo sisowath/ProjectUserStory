@@ -2,50 +2,55 @@ package views;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.DAOs.AdministrateurDAO;
+import models.DAOs.UtilisateurDAO;
 import models.classes.Administrateur;
-import models.classes.TableAdministrateur;
+import models.classes.Utilisateur;
 
 public class ProjectUserStory {
-
-    public static void main(String[] args) {     
-            // initialiser un administrateur
-            File unFichier = new File("TableAdministrateurs.txt");
+                // attribut(s) ou variable(s) globale(s)
+        private String message;
+        private static Utilisateur visiteur = new Utilisateur();
+        
+        public static void main(String[] args) {     
+            // initialiser un utilisateur
             try {
+                File unFichier = new File("TableUtilisateurs.txt");            
                 PrintWriter pointeurVersFichier = new PrintWriter(unFichier);
-                pointeurVersFichier.println("1 samnang suon samnang@test.com");
+                pointeurVersFichier.println("1 samnang suon admin");
                 pointeurVersFichier.close();
-                System.out.println("Le fichier « TableAdministrateurs.txt » a été créé.");
+                System.out.println("Le fichier « TableUtilisateurs.txt » a été créé.");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ProjectUserStory.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             Scanner cin = new Scanner(System.in);        
             boolean isConnected = false;
-            int choix;
+            int choixMenu;
             System.out.println("*** B I E N V E N U E   A U   S I T E - THE GAME ***");
             do {                
                 System.out.println("[1] S'authentifier");
                 System.out.println("[2] S'inscrire");
                 System.out.print("Veuillez saisir votre choix : ");
-                choix = cin.nextInt();
-                switch( choix ) {
+                choixMenu = cin.nextInt();
+                clearConsole(5);
+                switch( choixMenu ) {
                     case 1 :
                         isConnected = loginAction();
                         break;
                     case 2 :
                         signInAction();
+                        clearConsole(5);
                         break;
                 }
             } while(!isConnected);
             
-// Menu Principal            
-            clearConsole();
+// page d'accueil
+            //visiteur = fabriqueSession();
             System.out.println("[1] Téléporter au PvE");
             System.out.println("[2] Téléporter au PvP");
             System.out.println("[3] Téléporter au Magasin");
@@ -55,8 +60,8 @@ public class ProjectUserStory {
             System.out.println("[7] Gérer profile");
             System.out.println("[8] Envoyer un message publique");
             System.out.print("Votre choix : ");
-            choix = cin.nextInt();
-            switch(choix) {
+            choixMenu = cin.nextInt();
+            switch(choixMenu) {
                 case 1 : 
                     pveAction();
                     break;
@@ -89,16 +94,27 @@ public class ProjectUserStory {
         Scanner cin = new Scanner(System.in);
         String nomUtilisateur;
         String motDePasse;        
-        AdministrateurDAO temp = new AdministrateurDAO();
-        do {
-            clearConsole();
+        UtilisateurDAO temp = new UtilisateurDAO();
+        boolean isFound = false;
+        do {                        
+            System.out.println("Statut actuel : " + visiteur.getStatut() );
             System.out.print("Nom utilisateur : ");
             nomUtilisateur = cin.nextLine();
             System.out.print("Mot de passe : ");
-            motDePasse = cin.nextLine();            
-        } while( !temp.find(new Administrateur(nomUtilisateur, motDePasse) ) );
-            //System.out.println("Vous êtes connecté !");  
-            return true;
+            motDePasse = cin.nextLine();      
+            clearConsole(5);
+            visiteur.setUsername(nomUtilisateur);// visiteur doit être STATIC !
+            visiteur.setPassword(motDePasse);
+            if( temp.find( visiteur ) ) {
+                    System.out.println("BRAVO ! Vous êtes connecté !");
+                    isFound = true;
+                    System.out.println("Nouveau statut : " + visiteur.getStatut() );
+            } else {
+                System.out.println("Attention ! Il y a une erreur dans le username ou le password.");                            
+            }
+            clearConsole(5);
+        } while( !isFound );        
+        return true;
     }
     public static boolean signInAction() {
         Scanner cin = new Scanner(System.in);
@@ -126,4 +142,18 @@ public class ProjectUserStory {
         for(int i=0; i < x; i++)
             System.out.println();
     }
+    /*public static Utilisateur fabriqueSession() {
+        UtilisateurDAO temp = new UtilisateurDAO();
+        switch( temp.findStatut( visiteur ) ){
+            case "player" :
+                
+                break;
+            case "modo" :
+                
+                break;
+            case "admin" :
+                
+                break;
+        }
+    }*/
 }
