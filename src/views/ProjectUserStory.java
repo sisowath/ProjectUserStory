@@ -43,6 +43,7 @@ public class ProjectUserStory {
             do {                
                 System.out.println("[1] S'authentifier");
                 System.out.println("[2] S'inscrire");
+                System.out.println("[3] Mot de passe oublié");
                 System.out.print("Veuillez saisir votre choix : ");
                 choixMenu = cin.nextInt();
                 clearConsole(5);
@@ -53,6 +54,9 @@ public class ProjectUserStory {
                     case 2 :
                         signInAction();
                         clearConsole(5);
+                        break;
+                    case 3 :
+                        passwordForgotAction();
                         break;
                 }
             } while(!isConnected);
@@ -110,6 +114,9 @@ public class ProjectUserStory {
         System.out.print("Veuillez saisir votre email : ");
         String email = cin.next();
         System.out.println("Un message de confirmation a été envoyé à " + email);
+        return true;
+    }
+    public static boolean passwordForgot() {
         return true;
     }
 // Autre(s)    
