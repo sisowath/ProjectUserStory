@@ -116,7 +116,11 @@ public class ProjectUserStory {
         System.out.println("Un message de confirmation a été envoyé à " + email);
         return true;
     }
-    public static boolean passwordForgot() {
+    public static boolean passwordForgotAction() {
+        System.out.print("Veuillez saisir votre email : ");
+        String emailAEnvoyer = cin.next();
+        UtilisateurDAO temp = new UtilisateurDAO();
+       boolean reponse = temp.findEmail( emailAEnvoyer );
         return true;
     }
 // Autre(s)    
