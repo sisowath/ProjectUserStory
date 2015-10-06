@@ -18,9 +18,9 @@ public class ProjectUserStory {
         
         public static void main(String[] args) {     
             // test de l'utilisation d'une BD MySQL        
-            System.out.println("Je suis en train de tester la BD « Projet » de PhpMyAdmin...");
+            /*System.out.println("Je suis en train de tester la BD « Projet » de PhpMyAdmin...");
             MySQL test = new MySQL();
-            clearConsole(5);
+            clearConsole(5);*/
             // initialiser un utilisateur pour TEST                       
             /*try {
                 File unFichier = new File("TableUtilisateurs.txt");            

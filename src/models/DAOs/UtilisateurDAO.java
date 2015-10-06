@@ -30,7 +30,7 @@ public class UtilisateurDAO {
     }
     public static boolean findEmail(String emailRecu) {
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-        String DB_URL = "jdbc:mysql://localhost/projetuserstory";
+        String DB_URL = "jdbc:mysql://localhost/projectuserstory";
         String USER = "root";
         String PASS = "root";// Dans le cas UwAmp
         Connection conn = null;
